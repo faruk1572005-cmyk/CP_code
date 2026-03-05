@@ -33,7 +33,6 @@ using namespace std;
 
 void solve(){
     
-
 }
 int32_t main() {
     fastio;

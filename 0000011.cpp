@@ -32,12 +32,7 @@ using namespace std;
 #define fastio ios :: sync_with_stdio(false);cin.tie(0);cout.tie(0)
 
 void solve(){
-    deque<int>dq;
-    dq.insert(dq.begin(),6);
-    dq.push_back(5);
-    dq.push_front(3);
-    cout<<dq.front()<<nl;
-    cout<<*next(dq.begin())<<nl;
+    
 }
 int32_t main() {
     fastio;
