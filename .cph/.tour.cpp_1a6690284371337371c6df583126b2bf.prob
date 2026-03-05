@@ -1,0 +1,1 @@
+{"name":"Local: tour","url":"c:\\Users\\Tech Valley\\OneDrive\\Documents\\CF problem\\tour.cpp","tests":[{"id":1763443973939,"input":"2500 4\n1500 6\n2000 3\n","output":"YES\nYES\nNO\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Tech Valley\\OneDrive\\Documents\\CF problem\\tour.cpp","group":"local","local":true}

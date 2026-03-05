@@ -1,0 +1,53 @@
+
+/*    
+
+
+       ████████████████████████████████████████████████████
+       ██               Md.Faruk Hossain                 ██
+       ██    ███████╗ █████╗ ██████╗ ██╗   ██╗██╗  ██╗   ██
+       ██    ██╔════╝██╔══██╗██╔══██╗██║   ██║██║ ██╔╝   ██
+       ██    █████╗  ███████║██████╔╝██║   ██║█████╔╝    ██
+       ██    ██╔══╝  ██╔══██║██╔══██╗██║   ██║██╔═██╗    ██
+       ██    ██║     ██║  ██║██║  ██║╚██████╔╝██║  ██╗   ██
+       ██    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ██
+       ████████████████████████████████████████████████████
+
+*/
+
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define nl "\n"
+#define nf cout<<"\n"
+#define int long long
+#define cy cout << "YES\n"
+#define cn cout << "NO\n"
+#define fr(N)for(int i=0;i<N;i++)
+#define frg(x,a) for(auto x:a)
+#define vll vector<long long>
+#define all(v) v.begin(),v.end()
+#define rall(v) v.rbegin(),v.rend()
+
+#define fastio ios :: sync_with_stdio(false);cin.tie(0);cout.tie(0)
+
+void solve(){
+    int n;cin>>n;
+    int mx=0;
+    map<int,int>mp;
+    fr(n){
+        int x;cin>>x;
+        mp[x]++;
+        mx=max(mx,mp[x]);
+    }
+    if(mx*2<=n && n%2==0)cout<<0<<nl;
+    else if(mx<=ceil((double)n/2.0) && n%2!=0)cout<<1<<nl;
+    else cout<<n-2*(n-mx)<<nl;
+
+}
+int32_t main() {
+    fastio;
+    int t=1;cin>>t;
+    while(t--)solve();
+    return 0;
+}
