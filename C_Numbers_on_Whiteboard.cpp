@@ -29,14 +29,29 @@ using namespace std;
 #define all(v) v.begin(),v.end()
 #define rall(v) v.rbegin(),v.rend()
 
-#define fastio ios :: sync_with_stdio(false);cin.tie(0);cout.tie(0)
+#define fastio ios_base::sync_with_stdio(0);cout.tie(nullptr);cin.tie(nullptr)
 
 void solve(){
-    cout<<"Md. Fauk Hossain"<<nl;
+    int n;cin>>n;
+    priority_queue<int>p;
+    fr(n){
+        p.push(i+1);
+    }
+    vector<pair<int,int>>a;
+    fr(n-1){
+        int x=p.top();
+        p.pop();
+        int y=p.top();
+        p.pop();
+        a.push_back({x,y});
+        p.push(ceil(((double)1.0*(x+y))/2.0));
+    }
+    cout<<p.top()<<nl;
+    for(auto [x,y]:a) cout<<x<<' '<<y<<nl;
 }
 int32_t main() {
     fastio;
-    int t=1;
+    int t=1;cin>>t;
     while(t--)solve();
     return 0;
 }

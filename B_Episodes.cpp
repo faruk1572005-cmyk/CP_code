@@ -44,9 +44,6 @@ using namespace std;
 #define take(x) int x; cin >> x; while(x--)
 #define intput(x) int x;cin>>x;
 
-#define mxe(v) *max_element(v.begin(),v.end())
-#define mne(v) *min_element(v.begin(),v.end())
-
 #define psb(a) push_back(a)
 #define ppb pop_back()
 #define all(v) v.begin(),v.end()

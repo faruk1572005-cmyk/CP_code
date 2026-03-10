@@ -29,37 +29,15 @@ using namespace std;
 #define all(v) v.begin(),v.end()
 #define rall(v) v.rbegin(),v.rend()
 
-#define fastio ios :: sync_with_stdio(false);cin.tie(0);cout.tie(0)
+#define fastio ios_base::sync_with_stdio(0);cout.tie(nullptr);cin.tie(nullptr)
 
 void solve(){
-    string x,y;
-    cin>>x>>y;
-    //  char ch='A' ; //A=65  B=66  C=67 D=68 E=69
-    int  a=(abs(x[0]-x[1]));  // AC 65-67=2
-    int  b=(abs(y[0]-y[1]));   //EC  69-67=2 
-    if(a==3) a=2;
-    if(a==4) a=1;
-    if(b==3) b=2;
-    if(b==4) b=1;
-    if(a==b)cout<<"Yes"<<endl;     //DA  68-65=3
-    else cout<<"No"<<endl;         // EA  69-65=4
-
-
-
-    // string a,b;cin>>a>>b;
-    // int x=(abs(a[0]-a[1]));
-    // int y=(abs(b[0]-b[1]));
-    // if(x==4)x=1;
-    // if(x==3)x=2;
-    // if(y==4)y=1;
-    // if(y==3)y=2;
-    // (x==y)?cout<<"Yes":cout<<"No";
-
-
+    int n,x;cin>>n>>x;x++;
+    cout<<(n/x)+n%x<<nl;
 }
 int32_t main() {
     fastio;
-    int t=1;
+    int t=1;cin>>t;
     while(t--)solve();
     return 0;
 }

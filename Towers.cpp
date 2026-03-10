@@ -29,11 +29,20 @@ using namespace std;
 #define all(v) v.begin(),v.end()
 #define rall(v) v.rbegin(),v.rend()
 
-#define fastio ios :: sync_with_stdio(false);cin.tie(0);cout.tie(0)
+#define fastio ios_base::sync_with_stdio(0);cout.tie(nullptr);cin.tie(nullptr)
 
 void solve(){
-    
+    int n;cin>>n;
+    multiset<int>ml;
+    fr(n){
+        int x;cin>>x;
+        auto it=ml.upper_bound(x);
+        if(it!=ml.end())ml.erase(it);
+        ml.insert(x);
+    }
+    cout<<ml.size()<<nl;
 }
+
 int32_t main() {
     fastio;
     int t=1;

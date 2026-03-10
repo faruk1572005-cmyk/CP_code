@@ -1,57 +1,82 @@
 
-/*    
+// /*    
 
 
-       ████████████████████████████████████████████████████
-       ██               Md.Faruk Hossain                 ██
-       ██    ███████╗ █████╗ ██████╗ ██╗   ██╗██╗  ██╗   ██
-       ██    ██╔════╝██╔══██╗██╔══██╗██║   ██║██║ ██╔╝   ██
-       ██    █████╗  ███████║██████╔╝██║   ██║█████╔╝    ██
-       ██    ██╔══╝  ██╔══██║██╔══██╗██║   ██║██╔═██╗    ██
-       ██    ██║     ██║  ██║██║  ██║╚██████╔╝██║  ██╗   ██
-       ██    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ██
-       ████████████████████████████████████████████████████
+//        ████████████████████████████████████████████████████
+//        ██               Md.Faruk Hossain                 ██
+//        ██    ███████╗ █████╗ ██████╗ ██╗   ██╗██╗  ██╗   ██
+//        ██    ██╔════╝██╔══██╗██╔══██╗██║   ██║██║ ██╔╝   ██
+//        ██    █████╗  ███████║██████╔╝██║   ██║█████╔╝    ██
+//        ██    ██╔══╝  ██╔══██║██╔══██╗██║   ██║██╔═██╗    ██
+//        ██    ██║     ██║  ██║██║  ██║╚██████╔╝██║  ██╗   ██
+//        ██    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ██
+//        ████████████████████████████████████████████████████
 
-*/
+// */
 
 
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
  
-#define nl "\n"
-#define nf cout<<"\n"
-#define int long long
-#define cy cout << "YES\n"
-#define cn cout << "NO\n"
-#define fr(N)for(int i=0;i<N;i++)
-#define frg(x,a) for(auto x:a)
-#define vll vector<long long>
-#define all(v) v.begin(),v.end()
-#define rall(v) v.rbegin(),v.rend()
+// #define nl "\n"
+// #define nf cout<<"\n"
+// #define int long long
+// #define cy cout << "YES\n"
+// #define cn cout << "NO\n"
+// #define fr(N)for(int i=0;i<N;i++)
+// #define frg(x,a) for(auto x:a)
+// #define vll vector<long long>
+// #define all(v) v.begin(),v.end()
+// #define rall(v) v.rbegin(),v.rend()
 
-#define fastio ios :: sync_with_stdio(false);cin.tie(0);cout.tie(0)
+// #define fastio ios :: sync_with_stdio(false);cin.tie(0);cout.tie(0)
 
-void solve(){
-    int n;cin>>n;
-    int cnt2=0,cnt3=0;
-    while(n>=1){
-        if(n%3==0){
-            cnt3++;
-            n/=3;
-        }
-        else if(n%2==0){
-            cnt2++;
-            n/=2;
-        }else break;
-    }
+// void solve(){
+//     int n;cin>>n;
+
+//     while(n>=1){
+//         if(n%2==0){
+//             n/=2;
+//         }
+//         else if(n%3==0){
+//             n/=3;
+//         }
+        
+//         else break;
+//     }
     
 
-    if(n==1)cout<<"Yes"<<nl;
-    else cout<<"No"<<nl;
-}
-int32_t main() {
-    fastio;
-    int t=1;
-    while(t--)solve();
+//     if(n==1)cout<<"Yes"<<nl;
+//     else cout<<"No"<<nl;
+// }
+// int32_t main() {
+//     fastio;
+//     int t=1;
+//     while(t--)solve();
+//     return 0;
+// }
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    while (n >= 1)
+    {
+        if (n % 2 == 0)
+        {
+            n = n / 2;
+        }
+        else if (n % 3 == 0)
+        {
+            n = n / 3;
+        }
+        else
+            break;
+    }
+    if (n == 1)
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
     return 0;
 }

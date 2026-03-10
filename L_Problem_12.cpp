@@ -32,15 +32,22 @@ using namespace std;
 #define fastio ios :: sync_with_stdio(false);cin.tie(0);cout.tie(0)
 
 void solve(){
-    int n;cin>>n;
-    int even=0,odd=0;
+    int n;
+    cin>>n;
+    int even_number=0;
+    int odd_number=0;
     fr((2*n)){
-        int val;cin>>val;
-        if(val%2==0)even++;
-        else odd++;
+        int x;
+        cin>>x;
+        if(x%2==0)
+           even_number++;
+        else
+           odd_number++;
     }
-    if(even==odd)cout<<"Yes"<<nl;
-    else cout<<"No"<<nl;
+    if(even_number==odd_number)
+       cout<<"Yes"<<endl;
+    else 
+       cout<<"No"<<endl;
 }
 int32_t main() {
     fastio;
