@@ -59,34 +59,16 @@ using namespace std;
 
 
 void solve(){
-    int a,b,c,d;cin>>a>>b>>c>>d;
-    int n=2;
-    int x=1;
-    if(a%10==0){
-        cout<<0;n--;
-    } else x*=(a%10);
-    if(b%10==0){
-        cout<<0;n--;
-        if(!n)return;
-    } else x*=(b%10);
-    if(c%10==0){
-        cout<<0;n--;
-        if(!n)return;
-    } else x*=(c%10);
-    if(d%10==0){
-        cout<<0;n--;
-        if(!n)return;
-    } else x*=(d%10);
-    
-    if(n==1){
-        cout<<x%10;
-        n--;
-        if(!n)return;
-    } 
-    int y=x%100;
-    cout<<y/10;
-    cout<<y%10;
 
+
+    int A,B,C,D;
+    cin >> A >> B >> C >> D;
+
+    int ans = ((A % 100) * (B % 100)) % 100;
+    ans = (ans * (C % 100)) % 100;
+    ans = (ans * (D % 100)) % 100;
+
+    cout << setw(2) << setfill('0') << ans;
 }
 int32_t main() {
     fastio;

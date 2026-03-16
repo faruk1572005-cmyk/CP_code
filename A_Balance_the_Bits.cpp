@@ -31,29 +31,72 @@ using namespace std;
 
 #define fastio ios_base::sync_with_stdio(0);cout.tie(nullptr);cin.tie(nullptr)
 
-void solve(){
-    int n;cin >> n;
-    deque<int> a(n);
-    for(int &x: a)
-        cin >> x;
- 
-    int ans = 1;
-    set<int> prev;
-    prev.insert(a[0]);
-    a.pop_front();
-    while(a.size()){
-        set<int> next;
-        while(prev.size() && a.size()){
-            prev.erase(a.front());
-            next.insert(a.front());
-            a.pop_front();
-        }
-        if(prev.size())
-            break;
-        prev = next;
-        ans++;
+bool check (const string &s) {
+  int bal = 0;
+  for (char c : s) {
+    if (c == '(') {
+      bal++;
+    } else {
+      bal--;
     }
-    cout << ans << "\n";
+    if (bal < 0) {
+      return false;
+    }
+  }
+  return bal == 0;
+}
+ 
+void solve () {
+  int n;
+  cin >> n;
+ 
+  string s;
+  cin >> s;
+ 
+  int c1 = 0;
+  for (char c : s) {
+    if (c == '1') {
+      c1++;
+    }
+  }
+ 
+  if (c1 % 2 == 1) {
+    cn;
+    return;
+  }
+ 
+  int ol = c1 / 2;
+  bool turn = false;
+  string a, b;
+  for (char c : s) {
+    if (c == '1') {
+      if (ol > 0) {
+        a.push_back('(');
+        b.push_back('(');
+        ol--;
+      } else {
+        a.push_back(')');
+        b.push_back(')');
+      }
+    } else {
+      if (turn) {
+        a.push_back('(');
+        b.push_back(')');
+      } else {
+        a.push_back(')');
+        b.push_back('(');
+      }
+      turn = !turn;
+    }
+  }
+ 
+  if (check(a) && check(b)) {
+    cy;
+    cout << a << '\n';
+    cout << b << '\n';
+  } else {
+    cn;
+  }
 }
 int32_t main() {
     fastio;

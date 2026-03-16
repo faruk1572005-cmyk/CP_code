@@ -32,28 +32,33 @@ using namespace std;
 #define fastio ios_base::sync_with_stdio(0);cout.tie(nullptr);cin.tie(nullptr)
 
 void solve(){
-    int n;cin >> n;
-    deque<int> a(n);
-    for(int &x: a)
-        cin >> x;
- 
-    int ans = 1;
-    set<int> prev;
-    prev.insert(a[0]);
-    a.pop_front();
-    while(a.size()){
-        set<int> next;
-        while(prev.size() && a.size()){
-            prev.erase(a.front());
-            next.insert(a.front());
-            a.pop_front();
-        }
-        if(prev.size())
-            break;
-        prev = next;
-        ans++;
+    int n;cin>>n;
+    vll a(n);fr(n)cin>>a[i];
+    sort(all(a));
+    map<int,int>m;
+    fr(n){
+        if(m[a[i]-1])m[a[i]-1]--;
+        m[a[i]]++;
     }
-    cout << ans << "\n";
+    int ans=0;
+    frg(x,m)ans+=x.second;
+    cout<<ans<<nl;
+    // map<int ,int>m;
+    // fr(n){
+    //     int val;cin>>val;
+    //     m[val]++;
+    // }
+    // auto it=m.begin();
+    // int lest=it->first;
+    // int lestcnt=it->second;
+    // int ans=lestcnt;
+    // for(it++;it!=m.end() ;it++){
+    //     if(it->first!=(lest+1)) ans+=it->second;
+    //     else ans+=max((int)0,(it->second-lestcnt));
+    //     lest=it->first;
+    //     lestcnt=it->second;
+    // }
+    // cout<<ans<<nl;
 }
 int32_t main() {
     fastio;

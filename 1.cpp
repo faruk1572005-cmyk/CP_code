@@ -73,6 +73,15 @@ int32_t main() {
     // fun(*a);
     // cout<<"befor: "<<*a<<nl;
     unordered_map<int, int> mp;
-    if(cot)
+
+    int n;cin>>n;
+    for(int i=0;i<n;i++){
+        int x;cin>>x;
+        mp[x]++;
+    }
+    for(auto x:mp){
+        cout<<x.first<<" "<<x.second<<nl;
+    }
+
     return 0;
 }

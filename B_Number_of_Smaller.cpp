@@ -32,32 +32,21 @@ using namespace std;
 #define fastio ios_base::sync_with_stdio(0);cout.tie(nullptr);cin.tie(nullptr)
 
 void solve(){
-    int n;cin >> n;
-    deque<int> a(n);
-    for(int &x: a)
-        cin >> x;
- 
-    int ans = 1;
-    set<int> prev;
-    prev.insert(a[0]);
-    a.pop_front();
-    while(a.size()){
-        set<int> next;
-        while(prev.size() && a.size()){
-            prev.erase(a.front());
-            next.insert(a.front());
-            a.pop_front();
+    int n,m;cin>>n>>m;
+    vll a(n),b(m);
+    fr(n)cin>>a[i];fr(m)cin>>b[i];
+    int l=0,r=0,cnt=0;
+    while(r<m){
+        if(l<n && a[l]<b[r])l++,cnt++;
+        else{
+            cout<<cnt<<' ';
+            r++;
         }
-        if(prev.size())
-            break;
-        prev = next;
-        ans++;
     }
-    cout << ans << "\n";
 }
 int32_t main() {
     fastio;
-    int t=1;cin>>t;
+    int t=1;
     while(t--)solve();
     return 0;
 }

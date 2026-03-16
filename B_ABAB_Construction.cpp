@@ -32,28 +32,37 @@ using namespace std;
 #define fastio ios_base::sync_with_stdio(0);cout.tie(nullptr);cin.tie(nullptr)
 
 void solve(){
-    int n;cin >> n;
-    deque<int> a(n);
-    for(int &x: a)
-        cin >> x;
- 
-    int ans = 1;
-    set<int> prev;
-    prev.insert(a[0]);
-    a.pop_front();
-    while(a.size()){
-        set<int> next;
-        while(prev.size() && a.size()){
-            prev.erase(a.front());
-            next.insert(a.front());
-            a.pop_front();
-        }
-        if(prev.size())
-            break;
-        prev = next;
-        ans++;
+    int n;cin>>n;
+    deque<char> t;
+    for(int i=1 ;i<=n ;i++){
+        if(i%2==0)t.push_back('b');
+        else t.push_back('a');
     }
-    cout << ans << "\n";
+    // cout<<t[1]<<nl;
+    string s;cin>>s;
+    reverse(all(s));
+    while(!t.empty()){
+        char x=s.back();
+        if(x=='?'){
+            if(t.front()==t.back()) t.pop_back();
+            else{
+                char y=s[s.size()-2];
+                if(y==t.front())t.pop_back();
+                else if(y==t.back())t.pop_front();
+                else t.pop_back();
+            }
+        }
+        else if(x==t.front())t.pop_front();
+        else if(x==t.back())t.pop_back();
+        else{
+            cn;
+            return;
+        }
+        s.pop_back();
+        // cout<<s<<nl;
+        // frg(ch,t)cout<<ch;nf;
+    }
+    cy;
 }
 int32_t main() {
     fastio;
@@ -61,3 +70,4 @@ int32_t main() {
     while(t--)solve();
     return 0;
 }
+

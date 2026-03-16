@@ -31,29 +31,61 @@ using namespace std;
 
 #define fastio ios_base::sync_with_stdio(0);cout.tie(nullptr);cin.tie(nullptr)
 
-void solve(){
-    int n;cin >> n;
-    deque<int> a(n);
-    for(int &x: a)
-        cin >> x;
- 
-    int ans = 1;
-    set<int> prev;
-    prev.insert(a[0]);
-    a.pop_front();
-    while(a.size()){
-        set<int> next;
-        while(prev.size() && a.size()){
-            prev.erase(a.front());
-            next.insert(a.front());
-            a.pop_front();
-        }
-        if(prev.size())
-            break;
-        prev = next;
-        ans++;
+void solv(){
+    int n,x,y;cin>>n>>x>>y;
+    vll a(n);fr(n)cin>>a[i];
+    vll md;
+    for(int i=x ;i<y ;i++){
+        md.push_back(a[i]);
     }
-    cout << ans << "\n";
+    vll fs;
+    for(int i=0 ;i<x ;i++){
+        fs.push_back(a[i]);
+    }
+    for(int i=y ;i<n ;i++){
+        fs.push_back(a[i]);
+    }
+    auto it=min_element(all(md));
+    rotate(md.begin(),it,md.end());
+    
+   if(fs.empty()){
+    frg(v,md)cout<<v<<' ';nf;
+    return;
+   }
+    int k=0;
+    vll ans;
+    for( ;k<fs.size() ;k++){
+        if(fs[k]<md[0])ans.push_back(fs[k]);
+        else{
+            frg(v,md)ans.push_back(v);
+            break;
+        }
+    }
+    for(;k<fs.size();k++)ans.push_back(fs[k]);
+    frg(v,ans)cout<<v<<' ';nf;
+    // frg(v,md)cout<<v<<' ';nf;
+    // frg(v,fs)cout<<v<<' ';nf;
+}
+void solve() {
+    int n, x, y;cin >> n >> x >> y;
+    
+    vll p(n);fr(n)cin>>p[i];
+    
+    auto min =min_element(p.begin() + x, p.begin() + y);
+    rotate(p.begin() + x, min, p.begin() + y);
+    
+    vll a(p.begin() + x, p.begin() + y);
+    vll b(p.begin(), p.begin() + x);
+    b.insert(b.end(), p.begin() + y, p.end());
+    int i = 0;
+    while (i < b.size() && b[i] < a[0]) {
+        i++;
+    }
+    b.insert(b.begin() + i, a.begin(), a.end());
+    
+    for (int i = 0; i < n; i++) {
+        cout << b[i] << " \n"[i == n - 1];
+    }
 }
 int32_t main() {
     fastio;

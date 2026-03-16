@@ -32,32 +32,51 @@ using namespace std;
 #define fastio ios_base::sync_with_stdio(0);cout.tie(nullptr);cin.tie(nullptr)
 
 void solve(){
-    int n;cin >> n;
-    deque<int> a(n);
-    for(int &x: a)
-        cin >> x;
- 
-    int ans = 1;
-    set<int> prev;
-    prev.insert(a[0]);
-    a.pop_front();
-    while(a.size()){
-        set<int> next;
-        while(prev.size() && a.size()){
-            prev.erase(a.front());
-            next.insert(a.front());
-            a.pop_front();
-        }
-        if(prev.size())
+    string s;cin>>s;
+    string a="",b="";
+    int i=0;
+    bool g=false,ss=false,d=false,m=false;
+    
+    for(;i<s.size() ;i++){
+        if(s[i]=='+'){
+            g=true;
             break;
-        prev = next;
-        ans++;
+        } else if(s[i]=='-'){
+            ss=true;
+            break;
+        }else if(s[i]=='*'){
+            m=true;
+            break;
+        }
+        else if(s[i]=='/'){
+            d=true;
+            break;
+        }
+        a+=s[i];
     }
-    cout << ans << "\n";
+    for(i++;i<s.size() ;i++)b+=s[i];
+    int x,y;
+    x=(int)stoi(a);
+    y=(int)stoi(b);
+    if(g){
+        cout<<x+y;
+        return;
+    }
+     if(ss){
+        cout<<x-y;
+        return;
+    }
+    if(m){
+        cout<<x*y;
+        return;
+    }if(d){
+        cout<<x/y;
+        return;
+    }
 }
 int32_t main() {
     fastio;
-    int t=1;cin>>t;
+    int t=1;
     while(t--)solve();
     return 0;
 }

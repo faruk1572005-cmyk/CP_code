@@ -33,27 +33,20 @@ using namespace std;
 
 void solve(){
     int n;cin >> n;
-    deque<int> a(n);
-    for(int &x: a)
-        cin >> x;
- 
-    int ans = 1;
-    set<int> prev;
-    prev.insert(a[0]);
-    a.pop_front();
-    while(a.size()){
-        set<int> next;
-        while(prev.size() && a.size()){
-            prev.erase(a.front());
-            next.insert(a.front());
-            a.pop_front();
+    unordered_map<int, int> freq;
+    fr(n){
+        fr(n){
+            int x;cin >> x;
+            freq[x]++;
         }
-        if(prev.size())
-            break;
-        prev = next;
-        ans++;
     }
-    cout << ans << "\n";
+    int mx = 0;
+    for (auto &p:freq) {
+        mx = max(mx,p.second);
+    }
+    if (mx >n*(n - 1))cn;  
+    else cy;
+        
 }
 int32_t main() {
     fastio;
