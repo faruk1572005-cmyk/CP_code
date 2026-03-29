@@ -34,10 +34,11 @@ using namespace std;
 void solve(){
     int n,m;cin>>n>>m;
     vll a(n),b(m);
-    fr(n)cin>>a[i];fr(m)cin>>b[i];
+    fr(n)cin>>a[i];
+    fr(m)cin>>b[i];
     int l=0,r=0,cnt=0;
     while(r<m){
-        if(l<n && a[l]<b[r])l++,cnt++;
+        if(l<n && a[l]<b[r]) l++,cnt++;
         else{
             cout<<cnt<<' ';
             r++;

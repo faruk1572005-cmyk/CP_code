@@ -66,7 +66,7 @@ void solv(){
     // frg(v,md)cout<<v<<' ';nf;
     // frg(v,fs)cout<<v<<' ';nf;
 }
-void solve() {
+void so() {
     int n, x, y;cin >> n >> x >> y;
     
     vll p(n);fr(n)cin>>p[i];
@@ -87,9 +87,26 @@ void solve() {
         cout << b[i] << " \n"[i == n - 1];
     }
 }
+void solve(){
+    int n,l,r;cin>>n>>l>>r;
+    vll a(n);fr(n)cin>>a[i];
+    vll fs,m;
+    m.insert(m.begin(),a.begin()+l,a.begin()+r);
+    // frg(x,m)cout<<x<<" ";nf;
+    auto it=min_element(all(m));
+    rotate(m.begin(),it,m.end());
+    a.erase(a.begin()+l,a.begin()+r);
+    int i=0;
+    for(;i<a.size();i++){
+        if(a[i]>m.front())break;
+    }
+    a.insert(a.begin()+i,m.begin(),m.end());
+    frg(x,a)cout<<x<<' ';nf;
+}
 int32_t main() {
     fastio;
-    int t=1;cin>>t;
+    int t=1;
+    cin>>t;
     while(t--)solve();
     return 0;
 }

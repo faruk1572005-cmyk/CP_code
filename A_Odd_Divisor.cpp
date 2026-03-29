@@ -33,17 +33,9 @@ using namespace std;
 
 void solve(){
     int n;cin>>n;
-    if(n%2!=0 || n==1){
-        cy;
-        return; 
-    }
-   for(int i=3;i*i<=n;i+=2){
-        if(n%i==0){
-            cy;
-            return;
-        }
-    }
-    cn;
+    while(n%2==0)n/=2;
+    if(n==1)cn;
+    else cy;
 }
 int32_t main() {
     fastio;
