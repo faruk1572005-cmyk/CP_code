@@ -10,16 +10,13 @@ using namespace std;
 #define rall(v) v.rbegin(),v.rend()
 
 void solve(){
-    int n,k;cin>>n>>k;
-    int ans=k;
-    for(k;k>0;){
-        k-=2*n-1;
-        if(k>1){
-            ans+=k+k--;
-        }
-        else if(k>0)ans+=k;
+    int n,m;cin>>n>>m;
+    string ns,ms;cin>>ns>>ms;
+    for(int i=0;i<min(n,m);i++){
+        if(ns[i]!=ms[i]){cout<<'\n';return;}
+        cout<<ns[i];
     }
-    cout<<ans<<'\n';
+    cout<<'\n';
 }
 int32_t main() {
     ios::sync_with_stdio(false);

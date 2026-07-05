@@ -10,16 +10,11 @@ using namespace std;
 #define rall(v) v.rbegin(),v.rend()
 
 void solve(){
-    int n,k;cin>>n>>k;
-    int ans=k;
-    for(k;k>0;){
-        k-=2*n-1;
-        if(k>1){
-            ans+=k+k--;
-        }
-        else if(k>0)ans+=k;
-    }
-    cout<<ans<<'\n';
+    int a,b,c;cin>>a>>b>>c;
+    if(a==b)cout<<0<<nl;
+    else if(__gcd(a,c)==__gcd(b,c))cout<<1<<nl;
+    else if( __gcd(a,c+1)== __gcd(b,c+1))cout<<2<<nl;
+    else cout<<3<<nl;
 }
 int32_t main() {
     ios::sync_with_stdio(false);
