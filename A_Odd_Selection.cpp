@@ -10,10 +10,21 @@ using namespace std;
 #define rall(v) v.rbegin(),v.rend()
 
 void solve(){
-    int x,y;cin>>x>>y;
-    int xx=x/y;
-    if(x<y ||  xx*y!=x)cout<<"NO\n";
-    else cout<<"YES\n";
+    int n,x;cin>>n>>x;
+    int od=0,ev=0;
+    for(int i=0;i<n;i++){
+        int val;cin>>val;
+        if(val&1)od++;
+        else ev++;
+    }
+    if(x==n && !(od&1)){cout<<"No\n";return;}
+    if(od>=x){
+        if(x&1){cout<<"Yes\n";return;}
+        if(ev){cout<<"Yes\n";return;}
+        cout<<"No\n";
+    }
+    else if(od)cout<<"Yes\n";
+    else cout<<"No\n";
 }
 int32_t main() {
     ios::sync_with_stdio(false);

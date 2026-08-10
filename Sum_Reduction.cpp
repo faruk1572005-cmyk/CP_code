@@ -1,33 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define nl "\n"
-#define nf cout<<"\n"
+
+#define nl '\n'
+#define nf cout<<'\n'
 #define int long long
 #define cy cout << "YES\n"
 #define cn cout << "NO\n"
-#define fr(N)for(int i=0;i<N;i++)
-#define frg(x,a) for(auto x:a)
-#define vll vector<long long>
 #define all(v) v.begin(),v.end()
 #define rall(v) v.rbegin(),v.rend()
 
 void solve(){
     int n;cin>>n;
-    vll a(n);
-    fr(n)cin>>a[i];
-    int r=0,sum=0;
-    for(int i=0;i<n;i++) {
-        r|=a[i];
-        sum+=a[i];
+    vector<int> a(n);
+    for(auto &i:a)cin>>i;
+    vector<int > bit(32);
+    for(auto i:a){
+        for(int j=0;j<=31;j++){
+            if((i>>j)&1)bit[j]++;
+        }
     }
-    if(sum==r)cy;
-    else cn;            
+
+    for(auto i:bit)if(i>1){cout<<"No\n";return;}
+    cout<<"Yes\n";
 }
 int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    int t=1;cin>>t;
-    while(t--)solve();
+    int t=1;
+    cin>>t;
+    while(t--){solve();}
     return 0;
 }
